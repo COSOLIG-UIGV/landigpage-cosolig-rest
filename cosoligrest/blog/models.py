@@ -27,14 +27,15 @@ class Miembros(models.Model):
      nombre = models.CharField(max_length=50)
      apellido = models.CharField(max_length=60)
      perfil=models.ImageField(upload_to='avatar',verbose_name='Foto de perfil')
+     perfil_json=models.URLField(max_length=200,blank=True, null= False)
      correo =models.EmailField(max_length=70,blank=True, null= True, unique= True)
 
      TYPE_CHOICES = (
-       ('A', 'Presidente'),
-       ('B', 'Vice-Presidente'),
-       ('C', '2da Vice-Presidente'),
-       ('D','Secretario'),
-       ('F','Tesorera') ,
+       ('PR', 'Presidente'),
+       ('VP', 'Vice-Presidente'),
+       ('2VP', '2da Vice-Presidente'),
+       ('SE','Secretario'),
+       ('TS','Tesorero') ,
      )
      cargo =models.CharField(max_length=6,choices=TYPE_CHOICES)
      def __unicode__(self):

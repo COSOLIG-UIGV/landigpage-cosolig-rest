@@ -4,11 +4,13 @@ from .models import Post
 from rest_framework.permissions import IsAuthenticated
 from .serializers import PostSerializer
 from django.views.generic import ListView
+from .serializers import MiembrosSerializer
 
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    serializer_class= MiembrosSerializer
     permission_classes = (IsAuthenticated,)
 # Create your views here.
 
